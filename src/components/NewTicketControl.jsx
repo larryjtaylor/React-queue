@@ -1,26 +1,36 @@
 import React from "react";
 import NewTicketForm from "./NewTicketForm";
+import PropTypes from "prop-types";
 
 class NewTicketControl extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {formVisibleOnPage: false};
-    this.handleDisplayingNewTicketForm = this.handleDisplayingNewTicketForm.bind(this);
+    this.showForm = this.showForm.bind(this);
+    this.hideForm = this.hideForm.bind(this);
+    this.state = {
+      formVisibleOnPage: false
+    };
   }
 
-  handleDisplayingNewTicketForm(event) {
-    console.log(this);
+
+  showForm() {
     this.setState({formVisibleOnPage: true});
+  }
+
+  hideForm() {
+    this.setState({formVisibleOnPage: false});
   }
 
   render(){
     const formVisibleOnPage = this.state.formVisibleOnPage;
     let formAreaContent = null;
     if (formVisibleOnPage){
-      formAreaContent = <NewTicketForm/>
+      formAreaContent = <NewTicketForm
+              onNewTicketCreation={this.props.onNewTicketCreation}
+              hideFormAfterSubmission = {this.hideForm}/>
     } else {
-       formAreaContent = <button onClick={this.handleDisplayingNewTicketForm.bind(this)}>Request Help</button>;
+       formAreaContent = <button onClick={this.showForm}>Request Help</button>;
     }
 
     return (
@@ -32,4 +42,7 @@ class NewTicketControl extends React.Component {
 
 }
 
+NewTicketControl.propTypes = {
+  onNewTicketCreation: PropTypes.func
+}
 export default NewTicketControl;
