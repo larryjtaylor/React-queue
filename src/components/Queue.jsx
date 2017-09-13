@@ -13,11 +13,32 @@ class Queue extends React.Component{
     this.updateTicketTimeSinceOpened = this.updateTicketTimeSinceOpened.bind(this);
   }
 
+  componentWillMount() {
+    console.log('componentWillMount');
+  }
+
   componentDidMount() {
     this.timeSinceOpenedChecker = setInterval(() =>
       this.updateTicketTimeSinceOpened(),
       5000
     );
+  }
+
+  componentWillReceiveProps() {
+    console.log('componentWillReceiveProps');
+  }
+
+  shouldComponentUpdate() {
+    console.log('shouldComponentUpdate');
+    return true;
+  }
+
+  componentWillUpdate() {
+    console.log('componentWillUpdate');
+  }
+
+  componentDidUpdate() {
+    console.log('componentDidUpdate');
   }
 
   componentWillUnmount(){
