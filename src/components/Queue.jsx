@@ -10,6 +10,7 @@ class Queue extends React.Component{
       masterTicketList: []
     };
     this.addNewTicketToList = this.addNewTicketToList.bind(this);
+    this.updateTicketTimeSinceOpened = this.updateTicketTimeSinceOpened.bind(this);
   }
 
   componentDidMount() {
