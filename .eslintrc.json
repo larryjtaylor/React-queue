@@ -23,7 +23,6 @@
       "react/no-multi-comp": 2,
       "react/prefer-stateless-function": 2,
       "react/jsx-pascal-case": 2,
-      "react/jsx-indent": 2,
       "linebreak-style": [
           "error",
           "unix"

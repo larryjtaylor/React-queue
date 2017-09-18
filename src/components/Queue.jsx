@@ -1,7 +1,7 @@
 import React from "react";
 import TicketList from "./TicketList";
 import NewTicketControl from "./NewTicketControl";
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 
 class Queue extends React.Component{
 
@@ -43,7 +43,7 @@ const mapStateToProps = state => {
   console.log(state);
   return {
     masterTicketList : state
-  }
-}
+  };
+};
 
 export default connect(mapStateToProps)(Queue);
